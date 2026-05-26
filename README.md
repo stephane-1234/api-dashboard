@@ -1,16 +1,47 @@
-# React + Vite
+# API Dashboard
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Dashboard React affichant des données en temps réel depuis plusieurs APIs externes.
 
-Currently, two official plugins are available:
+## Technologies
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- **React** — bibliothèque UI
+- **Vite** — outil de build
+- **Tailwind CSS** — styles
+- **Hook useFetch** — gestion des appels API réutilisable
 
-## React Compiler
+## Widgets
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+| Widget | API | Description |
+|--------|-----|-------------|
+| 🌤️ Météo | OpenWeatherMap | Météo en temps réel à Montréal |
+| 💰 Crypto | CoinGecko | Prix Bitcoin, Ethereum, Solana |
+| 📰 Tech News | RSS2JSON + TechCrunch | Actualités tech en temps réel |
+| 😄 Blague | JokeAPI | Blague aléatoire avec bouton refresh |
 
-## Expanding the ESLint configuration
+## Installation
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+```bash
+git clone https://github.com/stephane-1234/api-dashboard.git
+cd api-dashboard
+npm install
+```
+
+Crée un fichier `.env` à partir de `.env.example` :
+
+```env
+VITE_OPENWEATHER_KEY=ta_clé_openweather
+VITE_NEWS_KEY=ta_clé_newsapi
+```
+
+Lance le projet :
+
+```bash
+npm run dev
+```
+
+Ouvre `http://localhost:5173`
+
+## Notes
+
+- CoinGecko et JokeAPI ne nécessitent pas de clé API
+- NewsAPI est remplacé par RSS2JSON pour éviter les restrictions CORS en développement
